@@ -16,9 +16,9 @@ export default function Page() {
             ojos y uno en la nariz, que le conferían un aspecto imponente y le
             ayudaban a defenderse de los depredadores. Los cuernos, hechos de
             hueso sólido, están soportados por una estructura ósea ancha y en
-            forma de "escudo" que se extiende desde la parte posterior del
-            cráneo hacia los lados, conocida como la gola. Esta gola ósea está
-            formada por placas óseas fusionadas que proporcionaban una
+            forma de &quot;escudo&quot; que se extiende desde la parte posterior
+            del cráneo hacia los lados, conocida como la gola. Esta gola ósea
+            está formada por placas óseas fusionadas que proporcionaban una
             protección adicional para el cuello y los órganos vitales. La
             mandíbula del triceratops es fuerte y robusta, equipada con dientes
             adaptados para cortar plantas. El esqueleto de la cabeza también
