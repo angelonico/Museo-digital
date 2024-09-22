@@ -38,12 +38,14 @@ const NavBar = () => {
   return (
     <div className="bg-orange-600 text-white flex justify-between w-full">
       <div className="p-3">
-        <Link href="/">Museo Digital</Link>
+        <Link href="/" className="font-bold text-xl">
+          Museo Digital
+        </Link>
       </div>
-      <div className="flex p-3 space-x-3">
+      <div className="flex p-3 space-x-4 text-lg">
         <Link href="/explorar">Explorar</Link>
         <Link href="/visitanos">Visitanos</Link>
-        <Link href="/Nosotros">Nosotros</Link>
+        <Link href="/nosotros">Nosotros</Link>
       </div>
     </div>
   );

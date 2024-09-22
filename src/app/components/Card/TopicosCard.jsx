@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const TopicosExplorar = () => {
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-2 gap-9">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-9">
       <TopicosCard src="/categorias/colecction.jpg" title="Mobiliario" />
       <TopicosCard src="/categorias/colection2.jpg" title="Contenedores" />
       <TopicosCard src="/categorias/colection3.jpg" title="Imagenes" />

@@ -9,19 +9,12 @@ export default function Home() {
       <div className="object-fill h-[calc(100vh-46px)]">
         <VideosInicio />
       </div>
-      <div className="flex">
-        <div className="w-[40%] flex justify-center items-center text-center m-10 p-10 text-3xl">
+      <div className="flex md:flex-row flex-col">
+        <div className="w-full md:w-[40%] md:m-10 p-10 flex justify-center items-center text-center  text-3xl">
           <h1>
-            Museo digital es una <br />
-            <b>collecion abierta</b> al <br />
-            publico, incorpora el
-            <br />
-            catalago online de{" "}
-            <i>
-              Museo <br />
-              Historico y Antropologico <br />
-              Mauricio Van de Maele.
-            </i>
+            Museo digital es una <b>colleccion abierta</b> al publico, incorpora
+            el catalago online de{" "}
+            <i>Museo Historico y Antropologico Mauricio Van de Maele.</i>
           </h1>
         </div>
         <ObjectCardGallery />

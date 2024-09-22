@@ -2,20 +2,21 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const Galeria = () => {
+const GaleriaImagenes = () => {
   const [imagenActiva, setImagenActiva] = useState("/objetos/trice/trice1.jpg");
 
   return (
-    <div className="w-full h-[calc(100vh-46px)] bg-black flex flex-col items-center justify-center">
-      <div className="flex-1 flex items-center justify-center">
+    <div className="w-full h-[calc(100vh-46px)] bg-black flex flex-col items-center justify-between relative">
+      <div className="flex flex-1 w-full items-center justify-center relative">
         <Image
           src={imagenActiva}
-          layout="intrinsic"
-          width={400}
-          height={500}
+          fill
           className="object-contain"
           alt="Imagen de ejemplo"
         />
+      </div>
+      <div className="absolute z-51 text-white bottom-20 left-0 bg-zinc-600 bg-opacity-50 p-10 py-5 m-5 rounded">
+        <h1>Triceraptor</h1>
       </div>
       <div className="bg-zinc-600 h-20 w-full flex items-center justify-center gap-3">
         <TarjetaImagen
@@ -64,4 +65,4 @@ const TarjetaImagen = ({ src, activa, onClick }) => {
   );
 };
 
-export default Galeria;
+export default GaleriaImagenes;

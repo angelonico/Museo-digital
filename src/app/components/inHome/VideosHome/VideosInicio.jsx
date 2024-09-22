@@ -34,7 +34,7 @@ const VideosInicio = () => {
   }, []);
 
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full text-white">
       <div className="w-full h-full bg-black flex">
         <video className="object-cover w-full" autoPlay muted loop>
           <source src={videos[currentVideoIndex]} type="video/mp4" />

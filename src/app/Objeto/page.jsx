@@ -1,12 +1,15 @@
 import BotonTarjeta from "../components/BotonTarjeta";
-import Galeria from "../components/Galeria";
+import Galeria from "../components/GaleriaImagenes";
 
 export default function Page() {
   return (
     <div className="flex flex-col">
+      {/* Galeria de imagenes */}
       <Galeria />
-      <div className="bg-white text-black p-10 flex gap-4">
-        <div className="w-1/2">
+
+      {/* Informacion del objeto */}
+      <div className="bg-white text-black flex flex-col lg:flex-row w-full">
+        <div className="flex-1 p-10">
           <h1 className="text-3xl">Triceraptor</h1>
           <h2 className="text-xs italic">Barney, Dinosaurio, Dumbo</h2>
           <p className="text-justify mt-8">
@@ -27,8 +30,10 @@ export default function Page() {
             a sus necesidades de defensa.
           </p>
         </div>
-        <div className="flex justify-center items-center h-screen  w-full">
-          <div className="grid grid-cols-2 gap-10">
+
+        {/*Tarjetas de infromacion */}
+        <div className="flex justify-center items-center py-10 px-10 lg:h-screen w-full lg:w-2/3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full">
             <BotonTarjeta title="Origen" />
             <BotonTarjeta title="Dimensiones" />
             <BotonTarjeta title="Categoria" />

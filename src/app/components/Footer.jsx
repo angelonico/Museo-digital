@@ -14,11 +14,13 @@ const Footer = () => {
         <div className="justify-start w-1/3">
           <h2>¡Siguenos!</h2>
         </div>
-        <div className="flex w-1/3 pt-2 size-5 space-x-5">
-          <FaInstagram size={25} />
-          <FaFacebookSquare size={25} />
-          <FaXTwitter size={25} />
-          <FaYoutube size={25} />
+        <div className="w-1/3 pt-2 justify-start items-center flex">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <FaInstagram size={25} />
+            <FaFacebookSquare size={25} />
+            <FaXTwitter size={25} />
+            <FaYoutube size={25} />
+          </div>
         </div>
       </div>
     </div>
