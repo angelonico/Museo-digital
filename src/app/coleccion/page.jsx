@@ -50,14 +50,15 @@ export default function Page() {
       </div>
 
       {/* Contenido Principal  */}
-      <div className="flex">
+      <div className="flex h-[130vh]">
         <SideBar open={open} />
+
         <div
-          className={` flex justify-center p-8 transition-all  overflow-hidden duration-300 ease-in-out ${
-            open ? "w-0 p-0" : "p-8 flex-1"
+          className={` flex justify-center p-8 transition-all overflow-hidden duration-300 ease-in-out ${
+            open ? "w-0 p-0 md:flex-1" : "p-8 flex-1"
           }`}
         >
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 items-start justify-center">
             <Tarjeta />
             <Tarjeta />
             <Tarjeta />
@@ -83,7 +84,7 @@ const Tarjeta = () => {
       className="relative group"
       onMouseEnter={() => setTituloVisible(true)}
       onMouseLeave={() => setTituloVisible(false)}
-      href="/Objeto"
+      href="/objeto"
     >
       <Image src="/objetos/trice/trice1.jpg" width={200} height={300} />
       {tituloVisible && (

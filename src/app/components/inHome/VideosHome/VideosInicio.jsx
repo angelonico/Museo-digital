@@ -40,7 +40,7 @@ const VideosInicio = () => {
           <source src={videos[currentVideoIndex]} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute bottom-8 ml-8 p-4 bg-black bg-opacity-60  rounded">
+        <div className="absolute bottom-8 font-bold ml-8 p-4 bg-black bg-opacity-90  rounded">
           <h1 className="">
             Museo Historico y Antropologico Maurio Van de Maele
           </h1>

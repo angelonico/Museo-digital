@@ -1,5 +1,6 @@
-import BotonTarjeta from "../components/BotonTarjeta";
+import BotonTarjeta from "../components/Card/DescriptionCard";
 import Galeria from "../components/GaleriaImagenes";
+import Link from "next/link";
 
 export default function Page() {
   return (
@@ -7,8 +8,18 @@ export default function Page() {
       {/* Galeria de imagenes */}
       <Galeria />
 
-      {/* Informacion del objeto */}
-      <div className="bg-white text-black flex flex-col lg:flex-row w-full">
+      {/* Main */}
+      <div className="bg-white text-black flex flex-col lg:flex-row w-full relative">
+        {/* Boton 3D */}
+        <div className="absolute right-10 top-5">
+          <Link href="/objeto3D">
+            <div className="bg-green-500 rounded-lg px-3 py-2 border-2 border-green-700">
+              <p className="text-white">Ver modelo 3D</p>
+            </div>
+          </Link>
+        </div>
+
+        {/* Informacion del objeto */}
         <div className="flex-1 p-10">
           <h1 className="text-3xl">Triceraptor</h1>
           <h2 className="text-xs italic">Barney, Dinosaurio, Dumbo</h2>
