@@ -1,30 +1,20 @@
 "use client";
 import Image from "next/image";
-import SideBar from "../components/SideBar";
+import SideBar from "../components/layout/SideBar";
 import { useState } from "react";
 import Link from "next/link";
-import { GoSearch } from "react-icons/go";
+import SearchBox from "../components/ui/SearchBox";
 
 export default function Page() {
   const [open, setOpen] = useState(true);
 
   return (
-    <div>
+    <div className="">
       {/* Contenedor Buscador */}
-      <div className="flex relative items-center justify-center flex-col bg-orange-400 h-32">
+      <div className="flex relative items-center p-24 flex-col bg-orange-400 h-48">
         {/* Buscador */}
-        <div className="w-3/4 md:w-1/2 ">
-          <form className="relative">
-            <input
-              type="text"
-              placeholder="Buscar.."
-              className="border-b-white w-full h-12 px-4 pr-10 text-2xl border-b bg-black bg-opacity-20 placeholder-white text-white focus:outline-none"
-            />
-            <GoSearch
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white"
-              size={25}
-            />
-          </form>
+        <div className="z-10 w-3/4 md:w-1/2">
+          <SearchBox />
         </div>
 
         {/* Tarjetas de filtros */}

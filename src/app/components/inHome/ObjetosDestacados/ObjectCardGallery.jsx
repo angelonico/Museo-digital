@@ -10,8 +10,6 @@ const ObjectCardGallery = () => {
       <ObjectCard />
       <ObjectCard />
       <ObjectCard />
-      <ObjectCard />
-      <ObjectCard />
     </div>
   );
 };
