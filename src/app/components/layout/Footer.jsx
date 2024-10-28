@@ -5,29 +5,25 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div className="bg-zinc-800 flex md:flex-col min-h-1/4 w-full">
-      <div className="w-2/3 p-5 flex">
-        <div className="overflow-hidden rounded">
+    <div className="bg-zinc-800 flex flex-col md:flex-row items-center justify-between p-5 w-full">
+      <div className="flex items-center">
+        <div className="overflow-hidden rounded w-24 h-24">
           <Image
             src={logoUach}
-            width={"w-max"}
-            height={"h-max"}
+            width={96}
+            height={96}
             className="object-cover"
             alt="Logo Universidad"
           />
         </div>
       </div>
-      <div className="text-stone-200 flex flex-col items-end w-1/3 p-10">
-        <div className="justify-start ">
-          <h2>¡Siguenos!</h2>
-        </div>
-        <div className="pt-2 justify-start items-center flex">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <FaInstagram size={25} />
-            <FaFacebookSquare size={25} />
-            <FaXTwitter size={25} />
-            <FaYoutube size={25} />
-          </div>
+      <div className="text-stone-200 flex flex-col items-center md:items-end mt-5 md:mt-0">
+        <h2>¡Síguenos!</h2>
+        <div className="pt-2 flex space-x-4">
+          <FaInstagram size={25} />
+          <FaFacebookSquare size={25} />
+          <FaXTwitter size={25} />
+          <FaYoutube size={25} />
         </div>
       </div>
     </div>

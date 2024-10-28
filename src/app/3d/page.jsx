@@ -1,40 +1,64 @@
-"use client";
-import React, { useEffect, useRef } from "react";
-import { Canvas, useLoader } from "@react-three/fiber";
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
-import { OrbitControls } from "@react-three/drei";
+import * as BABYLON from 'babylonjs';
 
-const ModeloOBJ = () => {
-  const obj = useLoader(OBJLoader, "/3d/CERVECERO.obj"); // Ruta al archivo .obj
-
-  console.log("Objeto cargado:", obj);
+const ModeloGLTF = () => {
+  const canvasRef = useRef(null);
 
   useEffect(() => {
-    if (obj) {
-      console.log("Geometría del objeto:", obj.geometry);
-    } else {
-      console.log("El objeto no se ha cargado.");
-    }
-  }, [obj]);
+    const canvas = canvasRef.current;
+    const engine = new BABYLON.Engine(canvas, true);
 
-  return <primitive object={obj} />;
+    const createScene = () => {
+      const scene = new BABYLON.Scene(engine);
+
+      // Crear una cámara
+      const camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.8, 20, new BABYLON.Vector3(0, 0, 0), scene);
+      camera.attachControl(canvas, true);
+
+      // Crear una luz
+      const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
+
+      // Cargar el modelo GLTF
+      BABYLON.SceneLoader.ImportMeshAsync("", "/3d/gltf/", "scene.gltf", scene)
+      .then((result) => {
+          // Ajustar la posición y escala del modelo
+          result.meshes[0].position.x = 0; // Centrar el modelo en el eje X
+          result.meshes[0].position.y = 0; // Centrar el modelo en el eje Y
+          result.meshes[0].scaling = new BABYLON.Vector3(0.5, 0.5, 0.5); // Ajustar el tamaño del modelo
+      });
+
+    return scene;
+    };
+
+    const scene = createScene();
+
+    engine.runRenderLoop(() => {
+      scene.render();
+    });
+  }, []);
+
+  return <canvas ref={canvasRef} style={{ width: '100%', height: '100%' }} />;
 };
 
-const ThreeScene = () => {
-  return (
-    <Canvas style={{ height: "100vh", width: "100%" }}>
-      <ambientLight intensity={0.5} />
-      <pointLight position={[10, 10, 10]} />
-      <ModeloOBJ />
-      <OrbitControls />
-    </Canvas>
-  );
-};
+// Resto de tu componente ThreeScene y Page
+
+
+import React from 'react';
+import Box from '../components/3d/Box';
+import ModeloGLTF from '../3d/page';
 
 export default function Page() {
   return (
-    <div className="flex min-h-screen w-full bg-red-400">
-      <ThreeScene />
+    <div className="h-screen flex">
+      {/* Modelo 3D */}
+      <div className="bg-black h-full w-3/4 flex items-center justify-center">
+        <Box />
+      </div>
+
+      {/* Descripcion */}
+      <div className="flex flex-col text-black w-1/4 p-4">
+        <h1 className="text-xl font-bold">Titulo del objeto</h1>
+        <p>Otros nombres...</p>
+      </div>
     </div>
   );
 }
