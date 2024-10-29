@@ -1,13 +1,20 @@
-const { createServer } = require("http");
+const { createServer } = require("https");
 const { parse } = require("url");
 const next = require("next");
+const { fs } = require("fs");
 
 const dev = process.env.NODE_ENV !== "production";
 const hostname = "localhost";
 const port = process.env.port || 3000;
+
 // when using middleware `hostname` and `port` must be provided below
 const app = next({ dev, hostname, port });
 const handle = app.getRequestHandler();
+
+const options = {
+  key: fs.readFileSync("/ruta/a/tu/clave/privada.pem"),
+  cert: fs.readFileSync("/ruta/a/tu/certificado.pem"),
+};
 
 app.prepare().then(() => {
   createServer(async (req, res) => {
