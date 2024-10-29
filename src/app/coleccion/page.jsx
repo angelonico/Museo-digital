@@ -1,15 +1,14 @@
 "use client";
-import Image from "next/image";
 import SideBar from "../components/layout/SideBar";
-import { useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import SearchBox from "../components/ui/SearchBox";
+import Gallery from "./Gallery";
 
 export default function Page() {
   const [open, setOpen] = useState(true);
 
   return (
-    <div className="">
+    <div className="bg-bg-coleccion min-h-screen">
       {/* Contenedor Buscador */}
       <div className="flex relative items-center p-24 flex-col bg-orange-400 h-48">
         {/* Buscador */}
@@ -40,48 +39,11 @@ export default function Page() {
       </div>
 
       {/* Contenido Principal  */}
-      <div className="flex h-[130vh]">
+      <div className="flex">
         <SideBar open={open} />
 
-        <div
-          className={` flex justify-center p-8 transition-all overflow-hidden duration-300 ease-in-out ${
-            open ? "w-0 p-0 md:flex-1" : "p-8 flex-1"
-          }`}
-        >
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 items-start justify-center">
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-          </div>
-        </div>
+        <Gallery open={open} />
       </div>
     </div>
   );
 }
-
-const Tarjeta = () => {
-  const [tituloVisible, setTituloVisible] = useState(false);
-  return (
-    <Link
-      className="relative group"
-      onMouseEnter={() => setTituloVisible(true)}
-      onMouseLeave={() => setTituloVisible(false)}
-      href="/objeto"
-    >
-      <Image src="/objetos/trice/trice1.jpg" width={200} height={300} />
-      {tituloVisible && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-lg font-bold">
-          <span>Triceraptor</span>
-        </div>
-      )}
-    </Link>
-  );
-};
