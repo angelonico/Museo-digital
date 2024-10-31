@@ -1,10 +1,10 @@
 const { createServer } = require("https");
 const { parse } = require("url");
 const next = require("next");
-const { fs } = require("fs");
+const fs = require("fs");
 
 const dev = process.env.NODE_ENV !== "production";
-const hostname = "localhost";
+const hostname = "museo-digital.cl";
 const port = process.env.port || 3000;
 
 // when using middleware `hostname` and `port` must be provided below
@@ -12,12 +12,16 @@ const app = next({ dev, hostname, port });
 const handle = app.getRequestHandler();
 
 const options = {
-  key: fs.readFileSync("/ruta/a/tu/clave/privada.pem"),
-  cert: fs.readFileSync("/ruta/a/tu/certificado.pem"),
+  key: fs.readFileSync(
+    "../ssl/keys/c02bd_1dd3d_2c31d28831a7ca6fcf0b91236a425335.key"
+  ),
+  cert: fs.readFileSync(
+    "../ssl/certs/museo_digital_cl_c02bd_1dd3d_1736711380_e02357245ffdc959763d40dfadd764b9.crt"
+  ),
 };
 
 app.prepare().then(() => {
-  createServer(async (req, res) => {
+  createServer(options, async (req, res) => {
     try {
       // Be sure to pass `true` as the second argument to `url.parse`.
       // This tells it to parse the query portion of the URL.
