@@ -24,8 +24,8 @@ const SideBar = ({ open }) => {
   return (
     <div
       className={`bg-gray-300 text-black space-y-4 h-auto transition-all duration-300 ease-in-out ${
-        open ? "w-full md:w-80 p-4" : "w-0 p-0"
-      } overflow-hidden`}
+        open ? "w-full md:w-80 p-4" : "w-0 h-0 md:h-auto p-0"
+      } overflow-hidden m-3`}
     >
       {ItemsMenu.map((menu, index) => (
         <div key={index}>

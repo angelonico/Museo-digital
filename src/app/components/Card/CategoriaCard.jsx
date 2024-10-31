@@ -1,36 +1,32 @@
 import Image from "next/image";
 
+const colecciones = [
+  { title: "Mobiliario", path: "/categorias/mobiliario.jpg" },
+  { title: "Contenedores", path: "/categorias/contenedores.jpg" },
+  { title: "Herramientas", path: "/categorias/herramientas.jpg" },
+  { title: "Imágenes", path: "/categorias/images.jpg" },
+  { title: "Vestuario", path: "/categorias/vestuario.jpg" },
+  { title: "Textos y archivos", path: "/categorias/textos.jpg" },
+  { title: "Música", path: "/categorias/musica.jpg" },
+];
+
 const CategoriasExplorar = () => {
   return (
-    <div className="flex justify-center">
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-9">
-        <TarjetaCategoria src="/categorias/colecction.jpg" title="Mobiliario" />
+    <div className="flex flex-wrap gap-4 justify-center p-3">
+      {colecciones.map((coleccion, index) => (
         <TarjetaCategoria
-          src="/categorias/colection2.jpg"
-          title="Contenedores"
+          key={index}
+          src={coleccion.path}
+          title={coleccion.title}
         />
-        <TarjetaCategoria src="/categorias/colection3.jpg" title="Imagenes" />
-        <TarjetaCategoria
-          src="/categorias/colection4.jpeg"
-          title="Herramientas"
-        />
-        <TarjetaCategoria src="/categorias/colection4.jpeg" title="Vestuario" />
-        <TarjetaCategoria src="/categorias/colection4.jpeg" title="Musica" />
-        <TarjetaCategoria src="/categorias/colection4.jpeg" title="Musica" />
-        <TarjetaCategoria src="/categorias/colection4.jpeg" title="Musica" />
-        <TarjetaCategoria src="/categorias/colection4.jpeg" title="Musica" />
-        <TarjetaCategoria src="/categorias/colection4.jpeg" title="Musica" />
-        <TarjetaCategoria src="/categorias/colection4.jpeg" title="Musica" />
-        <TarjetaCategoria src="/categorias/colection4.jpeg" title="Musica" />
-        <TarjetaCategoria src="/categorias/colection4.jpeg" title="Musica" />
-      </div>
+      ))}
     </div>
   );
 };
 
 const TarjetaCategoria = ({ src, title }) => {
   return (
-    <div className="w-52 h-52 relative overflow-hidden group">
+    <div className="w-2/5 lg:w-1/4 xl:w-1/5 aspect-square relative overflow-hidden group grow max-h-96">
       <Image
         src={src}
         layout="fill"
@@ -38,7 +34,9 @@ const TarjetaCategoria = ({ src, title }) => {
         alt="Categoría"
       />
       <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-        <h3 className="text-white text-3xl font-semibold">{title}</h3>
+        <h3 className="text-white text-xl md:text-3xl font-semibold text-center">
+          {title}
+        </h3>
       </div>
     </div>
   );

@@ -2,16 +2,16 @@ import Link from "next/link";
 
 const CollectionCard = ({ path, title, id }) => {
   return (
-    <li className="bg-red-50">
+    <li className="mb-4 break-inside-avoid bg-white shadow-md p-2">
       <Link href={`/coleccion/${id}`}>
-        <div className="flex flex-col bg-white">
+        <div className="flex flex-col">
           <img
             src={path}
             alt={title}
             className="w-full h-auto object-contain bg-red-300"
           />
 
-          <span>{title}</span>
+          <span className="text-center px-4 py-2">{title}</span>
         </div>
       </Link>
     </li>

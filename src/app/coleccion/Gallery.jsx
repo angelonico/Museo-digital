@@ -6,7 +6,7 @@ const Gallery = ({ open, objects }) => {
   return (
     <div
       className={` flex justify-center p-8 transition-all overflow-hidden duration-300 ease-in-out ${
-        open ? "w-0 p-0 md:flex-1" : "p-8 flex-1"
+        open ? " md:flex-1" : "p-8 flex-1"
       }`}
     >
       <Objects />
@@ -37,7 +37,7 @@ const Objects = () => {
     fetchData();
   }, []);
   return (
-    <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+    <ul className="columns-1 sm:columns-2 lg:columns-3 gap-4 p-4">
       {data ? (
         data.map((objeto, index) => (
           <CollectionCard

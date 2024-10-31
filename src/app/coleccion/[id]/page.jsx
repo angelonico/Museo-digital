@@ -39,7 +39,7 @@ export default function Page({ params }) {
             <div className="bg-white text-black flex flex-col lg:flex-row w-full relative">
               {/* Boton 3D */}
               <div className="absolute right-10 top-5">
-                <Link href="/objeto3D">
+                <Link href={`/coleccion/${params.id}/3D-model`}>
                   <div className="bg-green-500 rounded-lg px-3 py-2 border-2 border-green-700">
                     <p className="text-white">Ver modelo 3D</p>
                   </div>
