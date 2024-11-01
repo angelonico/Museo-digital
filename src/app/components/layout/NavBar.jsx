@@ -23,8 +23,12 @@ const NavBar = () => {
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    console.log(menuOpen);
   };
+
+  // Condición para ocultar el NavBar si la ruta es `/coleccion/[id]`
+  if (pathname.startsWith("/coleccion/")) {
+    return null;
+  }
 
   return (
     <div
@@ -52,9 +56,9 @@ const NavBar = () => {
           menuOpen ? "absolute w-full px-7" : "hidden"
         } md:flex flex-col md:flex-row p-3 text-lg z-10 top-16`}
       >
-        <BotonLink text="Explorar" handleClick={toggleMenu} />
-        <BotonLink text="Visitanos" handleClick={toggleMenu} />
-        <BotonLink text="Nosotros" handleClick={toggleMenu} />
+        <BotonLink text="Explorar" handleClick={() => setMenuOpen(false)} />
+        <BotonLink text="Visitanos" handleClick={() => setMenuOpen(false)} />
+        <BotonLink text="Nosotros" handleClick={() => setMenuOpen(false)} />
       </div>
     </div>
   );

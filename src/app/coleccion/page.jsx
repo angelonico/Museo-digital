@@ -1,87 +1,45 @@
 "use client";
-import Image from "next/image";
 import SideBar from "../components/layout/SideBar";
-import { useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import SearchBox from "../components/ui/SearchBox";
+import Gallery from "./Gallery";
+import { GoFilter } from "react-icons/go";
+import { MdSort } from "react-icons/md";
 
 export default function Page() {
   const [open, setOpen] = useState(true);
 
   return (
-    <div className="">
+    <div className="bg-bg-coleccion min-h-screen">
       {/* Contenedor Buscador */}
-      <div className="flex relative items-center p-24 flex-col bg-orange-400 h-48">
+      <div className="flex relative items-center pt-24 flex-col bg-orange-400 h-56">
         {/* Buscador */}
         <div className="z-10 w-3/4 md:w-1/2">
           <SearchBox />
         </div>
 
         {/* Tarjetas de filtros */}
-        <div className=" flex absolute bottom-0 w-full justify-between  font-semibold">
-          <div onClick={() => setOpen(!open)}>
-            <p
-              className={`cursor-pointer bg-orange-300 rounded-t-md flex justify-center px-2 py-1 duration-300 ${
-                open ? "md:w-80 ml-0" : "w-auto ml-2"
-              }`}
-            >
-              Filtros
-            </p>
+        <div className=" flex absolute bottom-0 w-full place-content-around font-semibold">
+          <div
+            onClick={() => setOpen(!open)}
+            className="flex items-end px-4 pb-2 space-x-2 cursor-pointer text-slate-900 hover:text-white duration-200"
+          >
+            <p className="text-xl">Filtrar</p>
+            <GoFilter size={28} />
           </div>
-          <div className="flex space-x-1 pr-2">
-            <p className="bg-orange-300 rounded-t-md px-2 py-1">
-              Colecciones 2D
-            </p>
-            <p className="bg-orange-300 rounded-t-md px-2 py-1">
-              Colecciones 3D
-            </p>
+          <div className="flex items-end px-4 pb-2 space-x-2 text-gray-600 ">
+            <p className="text-xl">Ordernar por</p>
+            <MdSort size={28} />
           </div>
         </div>
       </div>
 
       {/* Contenido Principal  */}
-      <div className="flex h-[130vh]">
+      <div className="flex flex-col md:flex-row">
         <SideBar open={open} />
 
-        <div
-          className={` flex justify-center p-8 transition-all overflow-hidden duration-300 ease-in-out ${
-            open ? "w-0 p-0 md:flex-1" : "p-8 flex-1"
-          }`}
-        >
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 items-start justify-center">
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-            <Tarjeta />
-          </div>
-        </div>
+        <Gallery open={open} />
       </div>
     </div>
   );
 }
-
-const Tarjeta = () => {
-  const [tituloVisible, setTituloVisible] = useState(false);
-  return (
-    <Link
-      className="relative group"
-      onMouseEnter={() => setTituloVisible(true)}
-      onMouseLeave={() => setTituloVisible(false)}
-      href="/objeto"
-    >
-      <Image src="/objetos/trice/trice1.jpg" width={200} height={300} />
-      {tituloVisible && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-lg font-bold">
-          <span>Triceraptor</span>
-        </div>
-      )}
-    </Link>
-  );
-};

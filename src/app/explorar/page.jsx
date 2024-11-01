@@ -2,7 +2,6 @@ import Image from "next/image";
 import imagenSearch from "../../../public/bg-explorar.jpeg";
 import Link from "next/link";
 import CategoriasExplorar from "../components/Card/CategoriaCard";
-import TopicosExplorar from "../components/Card/TopicosCard";
 import { GoSearch } from "react-icons/go";
 import NavBar from "../components/layout/NavBar";
 import SearchBox from "../components/ui/SearchBox";
@@ -47,22 +46,9 @@ export default function Page() {
         </p>
       </div>
 
-      <div
-        className="h-[50vh] bg-[url('/museo/familia_en_museo.jpg')] bg-cover bg-center bg-fixed"
-        style={{ backgroundAttachment: "fixed" }}
-      ></div>
-
-      {/* Topicos principales */}
-      <div className="px-10 pb-8 lg:px-40 flex flex-col z-20">
-        <h2 className="text-4xl text-center font-light py-8">
-          Topicos principales
-        </h2>
-        <TopicosExplorar />
-      </div>
-
       {/* Colecciones Principales */}
       <div className="bg-cyan-700 text-amber-300 md:px-10 pb-8 z-20">
-        <h1 className="text-4xl text-center font-extralight py-8">
+        <h1 className="text-4xl text-center font-light py-8">
           Explora la Coleccion
         </h1>
         <CategoriasExplorar />
