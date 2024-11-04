@@ -5,7 +5,7 @@ import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { OrbitControls } from "@react-three/drei";
 
 const ModeloOBJ = () => {
-  const obj = useLoader(OBJLoader, "/3d/CERVECERO.obj"); // Ruta al archivo .obj
+  const obj = useLoader(OBJLoader, "/models/pato.glb"); // Ruta al archivo .obj
 
   console.log("Objeto cargado:", obj);
 
