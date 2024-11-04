@@ -7,7 +7,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div className="bg-zinc-600 flex flex-col md:flex-row py-10 place-content-around w-full">
+    <div className="bg-gray-500 flex flex-col md:flex-row py-10 place-content-around w-full">
       <div className="flex flex-col justify-center items-center space-y-8 md:space-y-0 md:flex-row md:space-x-12">
         <Image src={SERPAT} width={150} height={40} alt="Logo SERPAT" />
         <Image
@@ -17,7 +17,7 @@ const Footer = () => {
           alt="Logo Dirección Museológica"
         />
       </div>
-      <div className="text-stone-200 justify-center items-center flex flex-col p-10">
+      <div className="text-stone-500 justify-center items-center flex flex-col p-10">
         <div className="text-center text-2xl">
           <h2>¡Conócenos!</h2>
         </div>

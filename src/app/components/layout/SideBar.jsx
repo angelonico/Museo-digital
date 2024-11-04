@@ -23,8 +23,8 @@ const SideBar = ({ open }) => {
 
   return (
     <div
-      className={`bg-gray-300 text-black space-y-4 h-auto transition-all duration-300 ease-in-out ${
-        open ? "w-full md:w-80 p-4" : "w-0 h-0 md:h-auto p-0"
+      className={`bg-gray-300 text-black space-y-4 transition-all duration-300 ease-in-out ${
+        open ? "w-full md:w-80 h-full p-4" : "w-0 h-0 md:h-auto p-0"
       } overflow-hidden m-3`}
     >
       {ItemsMenu.map((menu, index) => (
@@ -36,6 +36,7 @@ const SideBar = ({ open }) => {
           />
         </div>
       ))}
+      <Button></Button>
     </div>
   );
 };
@@ -62,6 +63,14 @@ const Categoria = ({ text, isOpen, toggleMenu }) => {
           </label>
         </div>
       )}
+    </div>
+  );
+};
+
+const Button = () => {
+  return (
+    <div className="w-full flex justify-center items-center bg-sky-600 rounded-md hover:bg-sky-400 duration-150 p-2">
+      <p className="text-white font-medium">Aplicar Filtros</p>
     </div>
   );
 };

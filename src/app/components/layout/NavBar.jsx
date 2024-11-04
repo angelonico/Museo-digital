@@ -41,6 +41,7 @@ const NavBar = () => {
           <Link
             href="/"
             className="font-bold text-2xl hover:font-extrabold duration-100 text-center"
+            onClick={() => setMenuOpen(false)}
           >
             <p>MUSEO DIGITAL</p>
           </Link>

@@ -6,7 +6,7 @@ import TopicosExplorar from "./components/Card/TopicosCard";
 
 export default function Home() {
   return (
-    <main className="flex flex-col min-h-screen">
+    <main className="flex flex-col min-h-screen ">
       <VideosInicio />
       <div className="w-full px-7 py-14 lg:p-28 lg:px-56 flex justify-center items-center text-center text-2xl lg:text-3xl">
         <h1>
