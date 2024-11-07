@@ -17,7 +17,7 @@ const Footer = () => {
           alt="Logo Dirección Museológica"
         />
       </div>
-      <div className="text-stone-500 justify-center items-center flex flex-col p-10">
+      <div className="text-stone-900 justify-center items-center flex flex-col p-10">
         <div className="text-center text-2xl">
           <h2>¡Conócenos!</h2>
         </div>
