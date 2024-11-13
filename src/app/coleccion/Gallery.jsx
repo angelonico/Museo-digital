@@ -1,22 +1,60 @@
 import Image from "next/image";
 import CollectionCard from "../components/Card/CollectionCard";
 import { useEffect, useState } from "react";
+import ContentPage from "../components/ui/ContentPage";
 
 const Gallery = ({ open, objects }) => {
+  const [data, setData] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
+  const paginatedData = data
+    ? data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
+    : [];
+
   return (
     <div
-      className={` flex justify-center p-8 transition-all overflow-hidden duration-300 ease-in-out ${
+      className={` flex flex-col justify-center p-8 transition-all overflow-hidden duration-300 ease-in-out ${
         open ? " md:flex-1" : "p-8 flex-1"
       }`}
     >
-      <Objects />
+      <div className="w-full flex items-center justify-end pr-8">
+        {data && <p className="pb-2">{`${data.length} objetos`}</p>}
+      </div>
+      <ContentPage
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+        totalPages={Math.ceil((data ? data.length : 0) / itemsPerPage)}
+      />
+      <Objects setData={setData} />
+      <ul className="columns-1 sm:columns-2 lg:columns-3 gap-4 p-4">
+        {paginatedData.length > 0 ? (
+          paginatedData.map((objeto, index) => (
+            <CollectionCard
+              key={index}
+              path={objeto.url}
+              title={objeto.title}
+              id={objeto.id}
+            />
+          ))
+        ) : (
+          <p>Cargando...</p>
+        )}
+      </ul>
+      <ContentPage
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+        totalPages={Math.ceil((data ? data.length : 0) / itemsPerPage)}
+      />
     </div>
   );
 };
 
-const Objects = () => {
-  const [data, setData] = useState(null);
-
+const Objects = ({ setData }) => {
   useEffect(() => {
     async function fetchData() {
       try {
@@ -35,27 +73,9 @@ const Objects = () => {
       }
     }
     fetchData();
-  }, []);
-  return (
-    <ul className="columns-1 sm:columns-2 lg:columns-3 gap-4 p-4">
-      {data ? (
-        data.map((objeto, index) => (
-          <CollectionCard
-            key={index}
-            path={objeto.url}
-            title={objeto.title}
-            id={objeto.id}
-          />
-          /* <div key={index}>
-            <h1>{objeto.title}</h1>
-            <img src={objeto.url} width={500} height={300} />
-          </div> */
-        ))
-      ) : (
-        <p>Cargando...</p>
-      )}{" "}
-      {/* Renderiza el saludo */}
-    </ul>
-  );
+  }, [setData]);
+
+  return null;
 };
+
 export default Gallery;

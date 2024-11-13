@@ -1,14 +1,14 @@
 "use client";
 import { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
+import materials from "../../../../public/data/Material";
 
 const ItemsMenu = [
-  { title: "Colecccion" },
-  { title: "Clasificacion" },
-  { title: "Material" },
-  { title: "Siglo" },
+  { title: "Colecccion", data: ["Mauricio Van de Maele"] },
+  { title: "Clasificacion", data: ["Arte", "Historia", "Antropologia"] },
+  { title: "Material", data: materials },
+  { title: "Siglo", data: ["XVIII", "XIX", "XX"] },
   { title: "Estilo de fabricacion" },
-  { title: "Ubicacion" },
 ];
 
 const SideBar = ({ open }) => {
@@ -32,6 +32,7 @@ const SideBar = ({ open }) => {
           <Categoria
             text={menu.title}
             isOpen={subMenuOpen[menu.title]}
+            data={menu.data}
             toggleMenu={() => toggleSubMenu(menu.title)}
           />
         </div>
@@ -40,7 +41,7 @@ const SideBar = ({ open }) => {
   );
 };
 
-const Categoria = ({ text, isOpen, toggleMenu }) => {
+const Categoria = ({ text, isOpen, data, toggleMenu }) => {
   return (
     <div>
       <div
@@ -52,14 +53,13 @@ const Categoria = ({ text, isOpen, toggleMenu }) => {
       </div>
       {isOpen && (
         <div className="pl-4 pt-3">
-          <label className="flex items-center space-x-2">
-            <input type="checkbox" className="form-checkbox" />
-            <p>Submenú 1</p>
-          </label>
-          <label className="flex items-center space-x-2">
-            <input type="checkbox" className="form-checkbox" />
-            <p>Submenú 2</p>
-          </label>
+          {data &&
+            data.map((item, index) => (
+              <label key={index} className="flex items-center space-x-2">
+                <input type="checkbox" className="form-checkbox" />
+                <p>{item}</p>
+              </label>
+            ))}
         </div>
       )}
     </div>
