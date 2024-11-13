@@ -38,7 +38,7 @@ const Model = ({ url, scale, position }) => {
 
 const page = () => {
   const modelId = '2'; // Reemplaza con el ID de tu modelo
-  const modelUrl = `http://localhost:4000/object/m/2`; // Asegúrate de que el puerto y la ruta sean correctos
+  const modelUrl = `http://localhost:4000/object/m/${modelId}`; // Asegúrate de que el puerto y la ruta sean correctos
   return (
     <div className="w-full h-screen flex flex-col">
       <div className="flex flex-1">
